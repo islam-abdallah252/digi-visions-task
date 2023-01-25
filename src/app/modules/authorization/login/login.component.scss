@@ -1,0 +1,31 @@
+.login {
+  background: #42566a;
+  width: 213px;
+  height: 250px;
+  margin: 0px auto;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  h1 {
+    color: #eee;
+
+  }
+
+  mat-form-field {
+    margin-bottom: 20px;
+  }
+
+  button {
+
+    display: block;
+    width: 88%;
+    margin: 0px auto;
+    height: 30px;
+    cursor: pointer;
+  }
+}

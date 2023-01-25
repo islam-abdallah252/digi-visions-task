@@ -11,6 +11,11 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'user',
+    loadChildren: () =>
+      import('./modules/user/user.module').then((mod) => mod.UserModule),
+  },
+  {
     path: '',
     component: LoginComponent,
   },

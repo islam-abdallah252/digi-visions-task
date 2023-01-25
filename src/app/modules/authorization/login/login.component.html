@@ -1,1 +1,41 @@
-<p>login works!</p>
+<div class="login">
+  <h1>Welcome Back!</h1>
+  <form class="example-form" [formGroup]="loginForm">
+    <mat-form-field class="example-full-width">
+      <mat-label>user</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="name"
+        placeholder="Ex. userName"
+      />
+      <mat-hint>Type Your name!</mat-hint>
+
+      <mat-error *ngIf="loginForm.controls['name'].hasError('required')">
+        Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input
+        type="password"
+        matInput
+        formControlName="password"
+        placeholder="Ex. *******"
+      />
+      <mat-hint>Type Your Password!</mat-hint>
+
+      <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <button
+      mat-stroked-button
+      color="accent"
+      class="btn-block"
+      (click)="login(loginForm)"
+    >
+      Log in
+    </button>
+  </form>
+</div>

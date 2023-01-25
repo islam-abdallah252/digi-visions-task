@@ -4,10 +4,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app.routing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    // FlexLayoutModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
