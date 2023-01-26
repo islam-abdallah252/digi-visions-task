@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductsComponent } from './products.component';
 import { RouterModule, Routes } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
+
 const routes: Routes = [
   {
     path: '',
@@ -9,7 +11,7 @@ const routes: Routes = [
   },
 ];
 @NgModule({
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, MatCardModule, RouterModule.forChild(routes)],
   declarations: [ProductsComponent],
 })
 export class ProductsModule {}

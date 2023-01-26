@@ -1,0 +1,38 @@
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin: 100px 0;
+
+  &__card {
+    height: 440px;
+    width: 300px;
+    cursor: pointer;
+    &__image {
+      object-fit: cover;
+      height: 300px;
+    }
+
+    &__title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+    }
+
+    &__desc {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+  }
+
+  .mat-typography p {
+    margin: 0 0 4px;
+
+  }
+}
