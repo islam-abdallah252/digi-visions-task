@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../core/services/auth.service';
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss']
+  styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent implements OnInit {
+  constructor(public authService: AuthService) {}
 
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit() {}
+  logout() {
+    this.authService.logOut();
   }
-
+  setting() {
+    this.authService.showToaster('Unfortunately this feature coming soon');
+  }
+  changeLang() {
+    this.authService.showToaster('Unfortunately this feature coming soon');
+  }
 }

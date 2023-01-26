@@ -1,3 +1,25 @@
-<p>
-  admin works!
-</p>
+<mat-toolbar class="navbar">
+  <div class="navbar">
+    <span>Admin Store</span>
+  </div>
+
+  <div class="user-data" *ngIf="authService.getDataUser()">
+    <div class="image-user">
+      <img src="https://via.placeholder.com/350x150" />
+    </div>
+    <div class="menu-user">
+      <button mat-button [matMenuTriggerFor]="menu">
+        {{ authService.getDataUser().name }}
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="setting()">Settings</button>
+        <button mat-menu-item (click)="changeLang()">Ar</button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item (click)="logout()">Logout</button>
+      </mat-menu>
+    </div>
+  </div>
+</mat-toolbar>
+<mat-divider></mat-divider>
+
+<router-outlet></router-outlet>

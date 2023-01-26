@@ -1,7 +1,6 @@
 <div class="product">
-  <mat-card class="product__card">
+  <mat-card class="product__card" [routerLink]="productDetails.id">
     <img
-      [routerLink]="productDetails.id"
       class="product__card__image"
       mat-card-image
       [src]="productDetails.image"
@@ -15,15 +14,9 @@
         <h4 class="product__card__category">
           Category : {{ productDetails.category }}
         </h4>
-        <h4 class="product__card__price">
-          Price : {{ productDetails.price | currency }}
-        </h4>
+        <h4 class="product__card__price">Price : {{ productDetails.price }}</h4>
         <p class="product__card__rate">
-          Rate :
-          <bar-rating
-            [(rate)]="productDetails.rating.rate"
-            [max]="5"
-          ></bar-rating>
+          Rate : {{ productDetails.rating.rate }} / 5
         </p>
         <p class="product__card__desc">
           Description : {{ productDetails.description }}

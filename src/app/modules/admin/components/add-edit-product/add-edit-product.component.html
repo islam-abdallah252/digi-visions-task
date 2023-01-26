@@ -1,0 +1,72 @@
+<div class="add-edit-product">
+  <h1>Product</h1>
+  <form class="example-form" [formGroup]="productForm">
+    <mat-form-field class="example-full-width">
+      <mat-label>title</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="title"
+        placeholder="Ex. title"
+      />
+      <mat-hint>Type Your title product!</mat-hint>
+
+      <mat-error *ngIf="productForm.controls['title'].hasError('required')">
+        title is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>price</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="price"
+        placeholder="type price product"
+      />
+      <mat-hint>Type Your price!</mat-hint>
+
+      <mat-error *ngIf="productForm.controls['price'].hasError('required')">
+        price is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>description</mat-label>
+      <textarea
+        type="text"
+        matInput
+        formControlName="description"
+        placeholder="Ex. description"
+      ></textarea>
+      <mat-hint>Type Your description!</mat-hint>
+
+      <mat-error
+        *ngIf="productForm.controls['description'].hasError('required')"
+      >
+        description is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>category</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="category"
+        placeholder="Ex. category"
+      />
+      <mat-hint>Type Your category!</mat-hint>
+
+      <mat-error *ngIf="productForm.controls['category'].hasError('required')">
+        category is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <button
+      mat-stroked-button
+      color="accent"
+      class="btn-block"
+      (click)="saveForm(productForm)"
+    >
+      Save
+    </button>
+  </form>
+</div>

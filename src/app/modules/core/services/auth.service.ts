@@ -22,6 +22,7 @@ export class AuthService {
     const checkUserAvailable = this.dataUsers.find((u) => u.name === user.name);
     if (checkUserAvailable?.password === user.password) {
       this.setInLocal(user);
+
       this.showToaster('Successfully logged in');
     } else {
       this.showToaster('Password or user not valid');
@@ -36,12 +37,21 @@ export class AuthService {
     });
   }
   logOut() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth/login']);
     this.removeInLocal();
+  }
+  getDataUser() {
+    const user = JSON.parse(localStorage.getItem('auth_user') as any);
+    return user;
   }
   setInLocal(user: IUser) {
     localStorage.setItem('auth_user', JSON.stringify(user));
     localStorage.setItem('guard_type', user.name);
+    if (user.name === 'admin') {
+      this.router.navigate(['/admin/products']);
+    } else if (user.name === 'user') {
+      this.router.navigate(['/user/products']);
+    }
   }
   removeInLocal() {
     localStorage.removeItem('auth_user');

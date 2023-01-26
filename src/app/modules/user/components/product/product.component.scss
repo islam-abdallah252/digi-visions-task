@@ -17,13 +17,11 @@
     padding: 120px 80px;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     width: 100%;
 
     &__image {
       object-fit: contain;
-
-      width: 34%;
+      max-width: 279px;
 
 
 
@@ -39,7 +37,7 @@
 
   mat-card-content {
     div {
-      max-width: 70%;
+      max-width: 42%;
       padding-left: 83px;
 
     }

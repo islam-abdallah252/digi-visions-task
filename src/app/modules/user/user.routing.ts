@@ -1,28 +1,28 @@
+import { ProductsComponent } from './components/products/products.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { UserComponent } from './user.component';
+import { ProductComponent } from './components/product/product.component';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./user.module').then((mod) => mod.UserModule),
+    component: UserComponent,
     children: [
       {
         path: 'products',
-        loadChildren: () =>
-          import('./components/products/products.module').then(
-            (mod) => mod.ProductsModule
-          ),
+        component: ProductsComponent,
+      },
+      {
+        path: 'products/category/:categoryName',
+        component: ProductsComponent,
       },
       {
         path: 'products/:id',
-        loadChildren: () =>
-          import('./components/product/product.module').then(
-            (mod) => mod.ProductModule
-          ),
+        component: ProductComponent,
       },
     ],
   },
-  {},
 ];
 
 @NgModule({

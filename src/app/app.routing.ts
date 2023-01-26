@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './modules/authorization/login/login.component';
+import { AuthLoginAdminGuard } from './modules/core/guards/auth-login-admin.guard';
+import { AuthLoginUserGuard } from './modules/core/guards/auth-login-user.guard';
+import { DeleteDialogComponent } from './modules/shared/components/delete-dialog/delete-dialog.component';
 
 const routes: Routes = [
   {
@@ -14,6 +17,13 @@ const routes: Routes = [
     path: 'user',
     loadChildren: () =>
       import('./modules/user/user.module').then((mod) => mod.UserModule),
+    canActivate: [AuthLoginUserGuard],
+  },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./modules/admin/admin.module').then((mod) => mod.AdminModule),
+    canActivate: [AuthLoginAdminGuard],
   },
   {
     path: '',
@@ -29,5 +39,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+  providers: [AuthLoginUserGuard, AuthLoginAdminGuard],
+  entryComponents: [DeleteDialogComponent],
 })
 export class AppRoutingModule {}
