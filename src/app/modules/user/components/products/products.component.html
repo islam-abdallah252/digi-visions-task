@@ -6,6 +6,8 @@
       mat-card-image
       [src]="product.image"
       [alt]="product.category"
+      onError="this.src='https://via.placeholder.com/350x150';"
+      default="https://via.placeholder.com/350x150"
     />
     <mat-card-content>
       <p class="products__card__title">Name : {{ product.title }}</p>
