@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  FormBuilder,
+  UntypedFormBuilder,
   FormControl,
-  FormGroup,
+  UntypedFormGroup,
   Validators,
 } from '@angular/forms';
 import { AuthService } from '../../core/services/auth.service';
@@ -13,9 +13,9 @@ import { AuthService } from '../../core/services/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
+  loginForm: UntypedFormGroup;
   constructor(
-    public formBuilder: FormBuilder,
+    public formBuilder: UntypedFormBuilder,
     public authService: AuthService
   ) {
     this.loginForm = this.formBuilder.group({
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
 
-  login(form: FormGroup) {
+  login(form: UntypedFormGroup) {
     this.authService.login(form.value);
   }
 }
